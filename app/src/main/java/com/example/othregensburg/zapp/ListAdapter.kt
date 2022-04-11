@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import java.util.Locale
 
 class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
@@ -24,13 +26,27 @@ class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAda
         return data.size
     }
 
-    // TODO (1) Let the ViewHolder implement a View.OnClickListener
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var checkBox: CheckBox = itemView.findViewById(R.id.checkbox)
 
-        // TODO (2) Set the OnCLickListener to the checkboxes
+        init {
+            checkBox.setOnClickListener(this)
+        }
 
-        // TODO (3) Show a Toast with position and state of the clicked checkbox
+        override fun onClick(view: View?) {
+            if (view != null) {
+                Toast.makeText(
+                    view.context,
+                    String.format(
+                        Locale.GERMAN,
+                        "Position: %d is checked %s.",
+                        layoutPosition,
+                        checkBox.isChecked
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
 
         // TODO (4) Fix the issue with checkbox state of the recycled views which occurs after scrolling up and down
         // Hint: Make use of a SpareBooleanArray
