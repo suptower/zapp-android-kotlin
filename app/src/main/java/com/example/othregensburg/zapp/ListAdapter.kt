@@ -1,5 +1,6 @@
 package com.example.othregensburg.zapp
 
+import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 
 class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+    private val itemStateArray = SparseBooleanArray()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,6 +22,8 @@ class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAda
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: String = data[position]
         holder.checkBox.text = item
+
+        holder.checkBox.isChecked = itemStateArray.get(position, false)
     }
 
     override fun getItemCount(): Int {
@@ -34,6 +38,9 @@ class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAda
         }
 
         override fun onClick(view: View?) {
+            val checkboxState: Boolean = checkBox.isChecked
+            itemStateArray.put(layoutPosition, checkboxState)
+
             if (view != null) {
                 Toast.makeText(
                     view.context,
@@ -47,8 +54,5 @@ class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAda
                 ).show()
             }
         }
-
-        // TODO (4) Fix the issue with checkbox state of the recycled views which occurs after scrolling up and down
-        // Hint: Make use of a SpareBooleanArray
     }
 }
