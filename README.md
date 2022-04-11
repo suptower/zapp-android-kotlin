@@ -71,13 +71,6 @@ class ListAdapter(private val data: List<String>) :
             itemCheckBox.text = ...
         }
 
-
-
-
-
-
-
-
         companion object {
             // Factory method to create a single ViewHolder instance
             fun create(parent: ViewGroup): ViewHolder {
