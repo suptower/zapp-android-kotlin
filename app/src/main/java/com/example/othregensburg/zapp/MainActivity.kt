@@ -6,7 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.random.Random
 
+
 // Feature 2 Arda
+=======
+
+
+  
+//feature-1 Simon
 
 class MainActivity : AppCompatActivity() {
 
