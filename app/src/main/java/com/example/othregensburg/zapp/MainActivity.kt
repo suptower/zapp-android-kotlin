@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.random.Random
 
+// Feature 2 Arda
+
 class MainActivity : AppCompatActivity() {
 
     private val randomValues =
