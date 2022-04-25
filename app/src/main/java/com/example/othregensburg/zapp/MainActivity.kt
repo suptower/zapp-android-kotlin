@@ -8,7 +8,6 @@ import kotlin.random.Random
 
 
 // Feature 2 Arda
-=======
 
 
   
