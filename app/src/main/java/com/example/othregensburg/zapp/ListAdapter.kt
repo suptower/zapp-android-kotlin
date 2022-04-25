@@ -46,7 +46,7 @@ class ListAdapter(private val data: List<String>) : RecyclerView.Adapter<ListAda
                     view.context,
                     String.format(
                         Locale.GERMAN,
-                        "Position: %d is checked %s.",
+                        "Position: %d is checked: %s.",
                         layoutPosition,
                         checkBox.isChecked
                     ),
