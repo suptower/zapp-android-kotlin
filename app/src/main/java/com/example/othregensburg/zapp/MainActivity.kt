@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.random.Random
 
+
+
+
+//feature-1 Simon
+
 class MainActivity : AppCompatActivity() {
 
     private val randomValues =
